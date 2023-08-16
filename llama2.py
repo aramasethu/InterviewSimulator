@@ -69,10 +69,8 @@ if __name__ == '__main__':
     simulator = ConversationSimulator(model_path)
     response = simulator.generate_response(prompt_text)
 
-    # Save the simulated response to a text file
-    with open('conversation_output.txt', 'w') as file:
+# Save the simulated response to a distinct text file named after the patient
+    filename = f"conversation_output_{patient_details['name']}.txt"
+    with open(filename, 'w') as file:
         file.write(response)
-
-    # Print the simulated response
-    #print(response)
-    print("Conversation saved to conversation_output.txt")
+    print(f"Conversation for {patient_details['name']} saved to {filename}")
