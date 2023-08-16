@@ -2,6 +2,7 @@
 import os
 import replicate
 from getpass import getpass
+import json
 
 # Constants and Environment Configuration
 REPLICATE_API_TOKEN = getpass()
@@ -49,12 +50,18 @@ class ConversationSimulator:
 
 
 if __name__ == '__main__':
-    # Sample prompt for conversation simulation
+    # read patient details from .json
+    with open('patient_details.json', 'r') as file:
+        patient_details = json.load(file)
+        
+    # Format the prompt using the loaded patient details
     prompt_text = (
-        "Given the following patient details, simulate a conversation between a doctor and a patient. "
-        "Refer to the doctor as D and patient as P in the output. "
-        "Patient name: Bob. Patient age: 55. Patient condition: Bob has been experiencing acute hair loss since the last 6 weeks."
+        f"Given the following patient details, simulate a conversation between a doctor and a patient. "
+        f"Refer to the doctor as D and patient as P in the output. "
+        f"Patient name: {patient_details['name']}. Patient age: {patient_details['age']}. "
+        f"Patient condition: {patient_details['condition']}."
     )
+
 
     # Create simulator instance and generate response
     model_path = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
@@ -66,4 +73,4 @@ if __name__ == '__main__':
         file.write(response)
 
     # Print the simulated response
-    print(response)
+    #print(response)
