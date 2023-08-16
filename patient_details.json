@@ -1,5 +1,13 @@
-{
-    "name": "Bob",
-    "age": 55,
-    "condition": "Bob has been experiencing acute hair loss since the last 6 weeks."
-}
+[
+    {
+        "name": "Bob",
+        "age": 55,
+        "condition": "Bob has been experiencing acute hair loss since the last 6 weeks."
+    },
+    {
+        "name": "Alice",
+        "age": 40,
+        "condition": "Alice has had persistent headaches for the past month."
+    }
+    // ... potentially more patient details ...
+]

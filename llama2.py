@@ -51,16 +51,17 @@ class ConversationSimulator:
 
 if __name__ == '__main__':
     # read patient details from .json
-    with open('patient_details.json', 'r') as file:
-        patient_details = json.load(file)
-        
+    with open('patients_details.json', 'r') as file:
+        all_patient_details = json.load(file)
+
     # Format the prompt using the loaded patient details
-    prompt_text = (
-        f"Given the following patient details, simulate a conversation between a doctor and a patient. "
-        f"Refer to the doctor as D and patient as P in the output. "
-        f"Patient name: {patient_details['name']}. Patient age: {patient_details['age']}. "
-        f"Patient condition: {patient_details['condition']}."
-    )
+    for patient_details in all_patient_details:
+        prompt_text = (
+            f"Given the following patient details, simulate a conversation between a doctor and a patient. "
+            f"Refer to the doctor as D and patient as P in the output. "
+            f"Patient name: {patient_details['name']}. Patient age: {patient_details['age']}. "
+            f"Patient condition: {patient_details['condition']}."
+        )
 
 
     # Create simulator instance and generate response
@@ -74,3 +75,4 @@ if __name__ == '__main__':
 
     # Print the simulated response
     #print(response)
+    print("Conversation saved to conversation_output.txt")
