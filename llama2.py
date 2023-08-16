@@ -1,17 +1,19 @@
+# Imports
+import os
 import replicate
 from getpass import getpass
-import os
 
-
+# Constants and Environment Configuration
 REPLICATE_API_TOKEN = getpass()
 os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
+
 
 class ConversationSimulator:
     """
     Class for simulating conversations using the LLM model.
     """
 
-    def __init__(self, model_path):
+    def __init__(self, model_path: str):
         """
         Initialize the ConversationSimulator with the given model path.
 
@@ -20,7 +22,8 @@ class ConversationSimulator:
         """
         self.model_path = model_path
 
-    def generate_response(self, prompt, temperature=0.1, top_p=0.9, max_length=1280, repetition_penalty=1):
+    def generate_response(self, prompt: str, temperature: float = 0.1, top_p: float = 0.9, 
+                           max_length: int = 1280, repetition_penalty: float = 1) -> str:
         """
         Generates a response from the LLM model based on the provided prompt and parameters.
 
@@ -46,10 +49,21 @@ class ConversationSimulator:
 
 
 if __name__ == '__main__':
-    # Prompts
-    prompt_text = ("Given the following patient details, simulate a conversation between a doctor and a patient. Refer to the doctor as D and patient as P in the output. "
-                   "Patient name: Bob. Patient age: 55. Patient condition: Bob has been experiencing acute hair loss since the last 6 weeks.")
+    # Sample prompt for conversation simulation
+    prompt_text = (
+        "Given the following patient details, simulate a conversation between a doctor and a patient. "
+        "Refer to the doctor as D and patient as P in the output. "
+        "Patient name: Bob. Patient age: 55. Patient condition: Bob has been experiencing acute hair loss since the last 6 weeks."
+    )
 
-    simulator = ConversationSimulator('a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5')
+    # Create simulator instance and generate response
+    model_path = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
+    simulator = ConversationSimulator(model_path)
     response = simulator.generate_response(prompt_text)
+
+    # Save the simulated response to a text file
+    with open('conversation_output.txt', 'w') as file:
+        file.write(response)
+
+    # Print the simulated response
     print(response)
