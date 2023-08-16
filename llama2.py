@@ -50,8 +50,12 @@ class ConversationSimulator:
 
 
 if __name__ == '__main__':
+    # Initialise simulator
+    model_path = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
+    simulator = ConversationSimulator(model_path)
+
     # read patient details from .json
-    with open('patients_details.json', 'r') as file:
+    with open('patient_details.json', 'r') as file:
         all_patient_details = json.load(file)
 
     # Format the prompt using the loaded patient details
@@ -63,14 +67,11 @@ if __name__ == '__main__':
             f"Patient condition: {patient_details['condition']}."
         )
 
+        # Generate response
+        response = simulator.generate_response(prompt_text)
 
-    # Create simulator instance and generate response
-    model_path = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
-    simulator = ConversationSimulator(model_path)
-    response = simulator.generate_response(prompt_text)
-
-# Save the simulated response to a distinct text file named after the patient
-    filename = f"conversation_output_{patient_details['name']}.txt"
-    with open(filename, 'w') as file:
-        file.write(response)
-    print(f"Conversation for {patient_details['name']} saved to {filename}")
+        # Save the simulated response to a distinct text file named after the patient
+        filename = f"conversation_output_{patient_details['name']}.txt"
+        with open(filename, 'w') as file:
+            file.write(response)
+        print(f"Conversation for {patient_details['name']} saved to {filename}")
