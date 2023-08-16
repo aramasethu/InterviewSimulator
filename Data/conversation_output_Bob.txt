@@ -1,0 +1,20 @@
+D: Good morning Bob, how can I help you today?
+P: Hi doctor, I've been experiencing acute hair loss for the last 6 weeks. It's been really stressing me out.
+
+D: Sorry to hear that, Bob. Can you tell me a bit more about what's been going on? When did you first notice the hair loss, and have you noticed any other symptoms?
+P: Yeah, sure. I first noticed it about 6 weeks ago, and it's been getting worse every week. I've also noticed that my scalp has been itchy and red.
+
+D: I see. Have you tried any treatments for your hair loss yet?
+P: Yeah, I've tried using some over-the-counter shampoos and conditioners, but nothing seems to be working.
+
+D: Okay, well let's take a look at your scalp. *examines scalp* It does look quite red and inflamed. Have you noticed any other symptoms, such as dandruff or flaking?
+P: Yeah, I have noticed some flaking.
+
+D: Okay, I think I know what might be causing your hair loss. It's possible that you have a condition called alopecia areata, which is an autoimmune disorder that causes hair loss. I'd like to prescribe you a topical corticosteroid cream to help reduce the inflammation and promote hair growth.
+P: Okay, that sounds good. But what about the itchiness?
+
+D: The corticosteroid cream should help with that too. If you continue to experience itchiness, we can also discuss other treatment options. I also want to schedule you for a follow-up appointment in 2 weeks to check on your progress.
+
+P: Sounds good, thank you doctor.
+
+D: Of course, Bob. I'm glad we could figure out what's been going on and start you on a treatment plan. Let me know if you have any other questions or concerns.
