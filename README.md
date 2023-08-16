@@ -41,3 +41,23 @@ python ConvSimulator.py
 ```
 Enter the REPLICATE_API_TOKEN when prompted.
 The script will read patient details from patient_details.json, simulate conversations, and save them to individual text files in a folder named Data.
+
+## Methodology
+
+### Environment Setup:
+
+The script imports necessary libraries such as os, replicate, getpass, and json.
+The user is prompted to provide the REPLICATE_API_TOKEN for authentication. This token is then set as an environment variable. 
+
+### Definition of the ConversationSimulator Class:
+This class serves as an interface to interact with llama2 through the Replicate.
+The class is initialized with a model path.
+There's a method named generate_response that takes a prompt with other parameters like temperature, top_p, etc. This method interacts with the Replicate platform to obtain a response from the LLM based on the provided prompt.
+
+### Script Execution:
+When the script is executed, it performs the following steps:
+a. Initializes the ConversationSimulator with a specific model path.
+b. Reads patient details from a patient_details.json file.
+c. For each patient detail in the JSON file, it formats a prompt to simulate a conversation between a doctor and the patient using the provided details.
+d. Using the ConversationSimulator, it generates a simulated conversation response.
+e. Saves this generated response in a text file within the Data folder, naming the file based on the patient's name.

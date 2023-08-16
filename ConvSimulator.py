@@ -11,7 +11,7 @@ os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
 
 class ConversationSimulator:
     """
-    Class for simulating conversations using the LLM model.
+    Class for simulating conversations
     """
 
     def __init__(self, model_path: str):
